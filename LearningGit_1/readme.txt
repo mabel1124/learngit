@@ -24,6 +24,11 @@ HEAD 指向当前版本
 创建+切换分支：git checkout -b <name>或者git switch -c <name>
 
 合并某分支到当前分支：git merge <name>
-
+合并分支（禁止ff模式）：git merge --no-ff -m"备注" name
 删除分支：git branch -d <name>
 
+当手头工作没有完成时，先把工作现场git stash一下，然后去修复bug，修复后，再git stash pop，回到工作现场；
+
+在master分支上修复的bug，想要合并到当前dev分支，可以用git cherry-pick <commit>命令，把bug提交的修改“复制”到当前分支，避免重复劳动。
+
+强制删除分支：git branch -D <name>
